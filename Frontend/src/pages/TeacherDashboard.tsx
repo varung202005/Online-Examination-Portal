@@ -15,7 +15,7 @@ const TeacherDashboard = () => {
 
         console.log("Fetching teacher exams...");
 
-        const res = await fetch("http://localhost:5000/api/exams", {
+        const res = fetch("https://online-examination-portal-1-52p1.onrender.com/api/exams",  {
           headers: {
             Authorization: localStorage.getItem("token") || ""
           }
