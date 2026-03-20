@@ -24,7 +24,7 @@ const Register = () => {
 
   try {
 
-    await api.post('/auth/register', { name, email, password, role });
+    await api.post('auth/register', { name, email, password, role });
 
     navigate('/login');
 
