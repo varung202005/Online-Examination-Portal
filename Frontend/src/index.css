@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 224 71% 4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+
+    --primary: 226 70% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 215 25% 27%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 226 70% 97%;
+    --accent-foreground: 226 70% 55%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 226 70% 55%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 226 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 11%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 222 30% 14%;
+    --sidebar-ring: 226 70% 55%;
+
+    /* Custom tokens */
+    --surface-shadow: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+    --surface-shadow-hover: 0 0 0 1px rgba(0,0,0,0.12), 0 8px 16px -4px rgba(0,0,0,0.08);
+    --focus-ring: 0 0 0 2px hsl(226 70% 55%), 0 0 0 4px hsl(226 70% 55% / 0.15);
+    --transition-default: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 20% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 20% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 226 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 47% 11%;
+    --secondary-foreground: 210 20% 90%;
+    --muted: 222 47% 11%;
+    --muted-foreground: 215 16% 60%;
+    --accent: 222 47% 14%;
+    --accent-foreground: 226 70% 70%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 222 30% 14%;
+    --input: 222 30% 14%;
+    --ring: 226 70% 55%;
+    --sidebar-background: 224 71% 4%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 226 70% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 47% 11%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 222 30% 14%;
+    --sidebar-ring: 226 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply bg-card rounded-[12px];
+    box-shadow: var(--surface-shadow);
+    transition: box-shadow var(--transition-default);
+  }
+
+  .surface-card-hover:hover {
+    box-shadow: var(--surface-shadow-hover);
+  }
+
+  .input-focus {
+    @apply outline-none;
+    box-shadow: var(--focus-ring);
+  }
+
+  .zen-container {
+    @apply max-w-[65ch] mx-auto;
+  }
+
+  .exam-option {
+    @apply w-full flex items-center gap-4 p-4 rounded-lg border transition-all cursor-pointer;
+    transition: all var(--transition-default);
+  }
+
+  .exam-option-default {
+    @apply border-border bg-card hover:border-muted-foreground/30;
+  }
+
+  .exam-option-selected {
+    @apply border-primary bg-accent ring-1 ring-primary;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
